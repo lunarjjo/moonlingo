@@ -3,6 +3,19 @@
 All notable changes to moonlingo are documented here.
 The format follows Keep a Changelog; versioning follows SemVer.
 
+## [0.1.1] - 2026-10-28
+
+### Fixed
+
+- Dictionary key collisions are now a hard error instead of a silent
+  last-write-wins pick. A locale file defining the same key both ways —
+  `"nav.home": "..."` and `"nav": { "home": "..." }` — used to be flattened
+  with whichever side happened to come last in the file, so the visible
+  translation depended on key order and the loser vanished without a trace.
+  `loadLocales` now throws `conflicting dictionary keys` naming the file and
+  the key, for both insertion orders and at any nesting depth. Found during
+  an end-to-end audit of a freshly scaffolded three-locale project.
+
 ## [0.1.0] - 2026-10-28
 
 ### Added

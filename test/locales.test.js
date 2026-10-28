@@ -29,6 +29,23 @@ test('locales: top-level input must be an object', () => {
   assert.throws(() => flatten([]), /JSON object/);
 });
 
+test('locales: flat key colliding with a nested key is rejected', () => {
+  // both insertion orders must fail — the winner must never depend on key order
+  assert.throws(
+    () => flatten({ 'nav.home': 'flat', nav: { home: 'nested' } }),
+    /conflicting dictionary keys/,
+  );
+  assert.throws(
+    () => flatten({ nav: { home: 'nested' }, 'nav.home': 'flat' }),
+    /conflicting dictionary keys/,
+  );
+  // a collision can also appear deeper in the tree
+  assert.throws(
+    () => flatten({ a: { 'b.c': 'flat', b: { c: 'nested' } } }),
+    /conflicting dictionary keys/,
+  );
+});
+
 function makeLocalesDir() {
   const dir = mkdtempSync(join(tmpdir(), 'moonlingo-loc-'));
   mkdirSync(join(dir, 'locales'), { recursive: true });
@@ -53,4 +70,13 @@ test('locales: loadLocales reports invalid JSON with the file name', () => {
   const dir = makeLocalesDir();
   writeFileSync(join(dir, 'locales/bad.json'), '{ oops');
   assert.throws(() => loadLocales(join(dir, 'locales'), ['bad']), /invalid JSON in.*bad\.json/);
+});
+
+test('locales: loadLocales names the file on a key collision', () => {
+  const dir = makeLocalesDir();
+  writeFileSync(join(dir, 'locales/clash.json'), '{"a.b": "flat", "a": {"b": "nested"}}');
+  assert.throws(
+    () => loadLocales(join(dir, 'locales'), ['clash']),
+    /invalid dictionary in.*clash\.json.*conflicting dictionary keys/,
+  );
 });

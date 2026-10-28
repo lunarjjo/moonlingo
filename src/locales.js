@@ -21,6 +21,11 @@ export function flatten(obj, prefix = '', out = {}) {
     if (value !== null && typeof value === 'object' && !Array.isArray(value)) {
       flatten(value, path, out);
     } else if (typeof value === 'string') {
+      if (Object.hasOwn(out, path)) {
+        throw new Error(
+          `conflicting dictionary keys: "${path}" is defined both as a flat key and inside a nested object`,
+        );
+      }
       out[path] = value;
     } else {
       throw new Error(
@@ -53,7 +58,13 @@ export function loadLocales(localesDir, locales) {
     } catch (error) {
       throw new Error(`invalid JSON in ${file}: ${error.message}`);
     }
-    dicts.set(tag, flatten(parsed));
+    let flat;
+    try {
+      flat = flatten(parsed);
+    } catch (error) {
+      throw new Error(`invalid dictionary in ${file}: ${error.message}`);
+    }
+    dicts.set(tag, flat);
   }
   return dicts;
 }

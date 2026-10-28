@@ -76,7 +76,7 @@ dist/
 | `data-i18n-html="key"` | Replace the element's content with raw HTML from the dictionary. Explicit opt-in for trusted dictionaries. |
 | `data-i18n-attr="attr:key;attr2:key2"` | Translate attributes — `alt`, `placeholder`, `title`, `aria-label`, … Works on void elements such as `<img>` and `<input>`. |
 
-Three safety rules keep builds honest:
+Four safety rules keep builds honest:
 
 1. **Leaf rule** — a text marker (`data-i18n`) only applies to elements whose
    content has no nested markup. Anything ambiguous is skipped with a warning
@@ -86,6 +86,10 @@ Three safety rules keep builds honest:
 2. **Missing keys are visible** — an absent dictionary key leaves the source
    text in place and prints a warning with the locale, file and key name.
 3. **`translate="no"` is respected** — brand names and code samples stay put.
+4. **Colliding keys fail loudly** — a dictionary that defines the same key
+   both flat and nested (`"nav.home"` next to `"nav": { "home": ... }`) is a
+   build error naming the file and the key. The tool never picks a winner in
+   silence, so the shipped translation can never depend on key order.
 
 Build markers are stripped from the output; shipped pages contain no
 moonlingo artifacts.

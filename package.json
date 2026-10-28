@@ -1,6 +1,6 @@
 {
   "name": "moonlingo",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Static-first i18n for plain HTML sites — write once, build every language. Zero dependencies, RTL-aware, hreflang baked in.",
   "license": "MIT",
   "type": "module",
