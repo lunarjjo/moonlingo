@@ -3,9 +3,14 @@
 **Static-first i18n for plain HTML sites. Write once, build every language.**
 
 ![ci](https://github.com/lunarjjo/moonlingo/actions/workflows/ci.yml/badge.svg)
+![demo](https://img.shields.io/badge/live%20demo-lunarjjo.github.io%2Fmoonlingo-8b5dff)
 ![license](https://img.shields.io/badge/license-MIT-8b5dff)
 ![node](https://img.shields.io/badge/node-%3E%3D18-8b5dff)
 ![dependencies](https://img.shields.io/badge/dependencies-0-8b5dff)
+
+A live three-locale demo — english, spanish and arabic with automatic RTL —
+is built from [`examples/landing`](examples/landing) and deployed by CI on
+**every push**: <https://lunarjjo.github.io/moonlingo/>
 
 Most multilingual static sites fall into one of two traps: they translate in
 the browser with JavaScript (flash of untranslated content, poor SEO, extra

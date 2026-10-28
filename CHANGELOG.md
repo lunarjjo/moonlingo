@@ -5,6 +5,12 @@ The format follows Keep a Changelog; versioning follows SemVer.
 
 ## [0.1.1] - 2026-10-28
 
+### Added
+
+- Live demo site on GitHub Pages: `examples/landing` is built and deployed by
+  CI on every push to `main`, showcasing english, spanish and arabic (RTL) at
+  <https://lunarjjo.github.io/moonlingo/>.
+
 ### Fixed
 
 - Dictionary key collisions are now a hard error instead of a silent
