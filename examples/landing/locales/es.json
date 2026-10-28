@@ -1,0 +1,31 @@
+{
+  "title": "Ejemplo de moonlingo",
+  "nav": {
+    "home": "Inicio",
+    "features": "Características",
+    "about": "Acerca de"
+  },
+  "hero": {
+    "title": "Escribe una vez, genera todos los idiomas",
+    "subtitle": "Esta pequeña página se traduce en tiempo de compilación al inglés, al español y al árabe. Sin runtime, sin framework, sin destello de contenido sin traducir.",
+    "cta": "Empieza ahora"
+  },
+  "cards": {
+    "static": {
+      "title": "Salida 100% estática",
+      "text": "Cada idioma es un directorio simple de archivos HTML. Alojalo donde quieras."
+    },
+    "seo": {
+      "title": "SEO integrado",
+      "text": "Cada página incluye alternates hreflang hacia sus idiomas hermanos."
+    },
+    "rtl": {
+      "title": "Compatible con RTL",
+      "text": "El árabe, el hebreo y otros idiomas RTL invierten la dirección del documento automáticamente."
+    }
+  },
+  "footer": {
+    "line": "Construido con moonlingo, la herramienta i18n sin dependencias.",
+    "moon_alt": "Una luna creciente"
+  }
+}

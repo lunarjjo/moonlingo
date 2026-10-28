@@ -1,0 +1,8 @@
+{
+  "src": "site",
+  "dist": "dist",
+  "localesDir": "locales",
+  "sourceLocale": "en",
+  "locales": ["en", "es", "ar"],
+  "root": "redirect"
+}

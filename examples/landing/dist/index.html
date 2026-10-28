@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Redirecting…</title>
+<!-- built with moonlingo — static-first i18n for plain HTML -->
+</head>
+<body>
+<noscript>
+  <p>This site is available in several languages:</p>
+  <ul>
+    <li><a href="en/">en</a></li>
+    <li><a href="es/">es</a></li>
+    <li><a href="ar/">ar</a></li>
+  </ul>
+</noscript>
+<script>
+(function () {
+  var locales = ["en","es","ar"];
+  var fallback = "en";
+  var root = "";
+  var preferred = navigator.languages || [navigator.language || fallback];
+  var exact = null;
+  var partial = null;
+  for (var i = 0; i < preferred.length && exact === null; i++) {
+    var want = String(preferred[i] || '').toLowerCase();
+    for (var j = 0; j < locales.length; j++) {
+      var tag = locales[j].toLowerCase();
+      if (want === tag) { exact = locales[j]; break; }
+      if (partial === null && want.split('-')[0] === tag.split('-')[0]) { partial = locales[j]; }
+    }
+  }
+  var chosen = exact || partial || fallback;
+  location.replace(root + chosen + '/');
+})();
+</script>
+</body>
+</html>

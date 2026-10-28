@@ -1,0 +1,31 @@
+{
+  "title": "Moonlingo example",
+  "nav": {
+    "home": "Home",
+    "features": "Features",
+    "about": "About"
+  },
+  "hero": {
+    "title": "Write once, build every language",
+    "subtitle": "This tiny page is translated at build time into English, Spanish and Arabic. No runtime, no framework, no client-side flash of untranslated content.",
+    "cta": "Get started"
+  },
+  "cards": {
+    "static": {
+      "title": "Fully static output",
+      "text": "Every language is a plain directory of HTML files. Host it anywhere."
+    },
+    "seo": {
+      "title": "SEO baked in",
+      "text": "Each page carries hreflang alternates pointing at its sibling locales."
+    },
+    "rtl": {
+      "title": "RTL aware",
+      "text": "Arabic, Hebrew and other RTL locales flip the document direction automatically."
+    }
+  },
+  "footer": {
+    "line": "Built with moonlingo, the zero-dependency i18n build tool.",
+    "moon_alt": "A crescent moon"
+  }
+}
