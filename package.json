@@ -1,0 +1,44 @@
+{
+  "name": "moonlingo",
+  "version": "0.1.0",
+  "description": "Static-first i18n for plain HTML sites — write once, build every language. Zero dependencies, RTL-aware, hreflang baked in.",
+  "license": "MIT",
+  "type": "module",
+  "main": "src/index.js",
+  "bin": {
+    "moonlingo": "bin/moonlingo.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "files": [
+    "bin",
+    "src",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "test": "node --test test/",
+    "example": "node bin/moonlingo.js build --config examples/landing/moonlingo.config.json"
+  },
+  "keywords": [
+    "i18n",
+    "localization",
+    "static-site",
+    "html",
+    "rtl",
+    "hreflang",
+    "cli",
+    "zero-dependency",
+    "translation",
+    "build-tool"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lunarjjo/moonlingo.git"
+  },
+  "bugs": "https://github.com/lunarjjo/moonlingo/issues",
+  "homepage": "https://github.com/lunarjjo/moonlingo#readme",
+  "author": "lunarjjo (Lunar)"
+}
